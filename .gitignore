@@ -1,0 +1,12 @@
+# IDE extensions
+.vscode/*
+.idea/*
+*.iml
+
+# Ignore Mac DS_Store files
+.DS_Store
+
+# node
+node_module
+node_modules
+.node_repl_history
