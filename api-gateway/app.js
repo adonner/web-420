@@ -22,7 +22,7 @@ var mongoose = require('mongoose');
 
 mongoose.Promise = require('bluebird');
 
-mongoose.connect('mongodb+srv://admin:admin@api-gateway-mlpf2.mongodb.net/api-gateway?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://admin:admin@api-gateway-mlpf2.mongodb.net/api-gateway?retryWrites=true', {
   promiseLibrary: require('bluebird')
 })
 .then (() => console.log('connection successful'))
