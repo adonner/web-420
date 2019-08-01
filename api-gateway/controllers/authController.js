@@ -57,7 +57,7 @@ exports.user_token = function(req, res) {
     if(err){
       return res.status(500).send('Failed to authenticate token.');
     }
-    User.getById(decoded.id, function(err, user){
+    User.findById(decoded.id, function(err, user){
       if(err){
         return res.status(500).send('There was a problem finding the user.')
       }
@@ -69,8 +69,5 @@ exports.user_token = function(req, res) {
   })
 };
 
-exports.user_token = function(req, res) {
- res.send('NOT IMPLEMENTED: User token lookup GET');
-};
 
 // end program
