@@ -9,8 +9,14 @@
 
 // start program
 
+//Require Statements
+
 
 var mongoose = require('mongoose');
+
+// Creates User variable and exports
+var User = mongoose.model('User', userSchema);
+module.exports = User;
 
 //Fields username, password, and email
 var userSchema = new mongoose.Schema({
@@ -29,7 +35,13 @@ module.exports.add = (user, callback) => {
 module.exports.getById = (id, callback) =>{
   var query = {_id: id};
   User.findById(query, callback);
+};
+
+module.exports.getOne = (e, callback) => {
+  var query = { username: e };
+  User.findOne(query, callback);
 }
+
 
 
 
