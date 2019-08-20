@@ -19,6 +19,7 @@ var checkToken = require('../check-token');
 router.post('/auth/register', auth_controller.user_register);
 
 // Use the router get to set the auth/token route
+router.get('/auth/token', auth_controller.user_token);
 
 router.get('/auth/token', checkToken, auth_controller.user_token);
 

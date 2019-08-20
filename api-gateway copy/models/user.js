@@ -12,22 +12,21 @@
 //Require Statements
 
 
-
-var mongoose = require("mongoose");
-// Declare the schema
-const Schema = mongoose.Schema;
-
-// Define the employee schema with a first and last name
-let userSchema = new Schema({
-  username: {type: String, required: true},
-  password: {type: String, required: true},
-  email: {type: String, required: true}
-});
+var mongoose = require('mongoose');
 
 // Creates User variable and exports
 var User = mongoose.model('User', userSchema);
 module.exports = User;
 
+//Fields username, password, and email
+var userSchema = new mongoose.Schema({
+ username: String,
+ password: String,
+ email: String
+});
+
+
+module.exports = mongoose.model('User', userSchema);
   
 module.exports.add = (user, callback) => {
   user.save(callback);
@@ -42,6 +41,9 @@ module.exports.getOne = (e, callback) => {
   var query = { username: e };
   User.findOne(query, callback);
 }
+
+
+
 
 
 // end program

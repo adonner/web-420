@@ -47,13 +47,21 @@ exports.user_register = function(req, res) {
 };
 
 exports.user_token = function(req, res) {
+  // Call the getById method on the mongoose model
   User.getById(req.userId, function(err, user){
-    // Return a server error, 500 and a messae to the user
-    if(err) return res.status(500).send('There was a problem finding the user.')
-    // Return a server error, 404 and a message to the user
-    if(!user) return res.status(404).send('No user found.');
-    //Render a message to the response
+    // if there is an error return a 500, server error with a message
+    if(err){
+      return res.status(500).send('There was a problem finding the user.')
+    }
+
+    // if the user is not defined return a 404 status code
+    if(!user){
+      return res.status(404).send('No user found.');
+    }
+
+    // Return the 200 status code, OK and the user
     res.status(200).send(user);
+
   });
 };
 
